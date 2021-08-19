@@ -1,6 +1,6 @@
 # © TamilBots 2021-22
 
-from pyrogram import Client, filters
+from pyrogram import Client, Filters
 from pyrogram.types import (
     InlineKeyboardButton,
     InlineKeyboardMarkup
@@ -28,7 +28,7 @@ def time_to_seconds(time):
 
 
 ## Commands --------------------------------
-@bot.on_message(filters.command(['start']))
+@bot.on_message(Filters.command(['start']))
 def start(client, message):
     TamilBots = f'👋 𝗛𝗲𝗹𝗹𝗼 @{message.from_user.username}\n\n𝗜 𝗔𝗺 🎸𝐒𝐨𝐧𝐠 𝐏𝐥𝐚𝐲 𝐁𝐨𝐭[🎶](https://telegra.ph/file/6cb884fe1cb943ec12df1.mp4)\n\n𝗦𝗲𝗻𝗱 𝗧𝗵𝗲 𝗡𝗮𝗺𝗲 𝗢𝗳 𝗧𝗵𝗲 𝗦𝗼𝗻𝗴 𝗬𝗼𝘂 𝗪𝗮𝗻𝘁... 😍🥰🤗\n\n𝗧𝘆𝗽𝗲 /s 𝗦𝗼𝗻𝗴 𝗡𝗮𝗺𝗲\n\n𝐄𝐠. `/s Faded`'
     message.reply_text(
@@ -44,7 +44,7 @@ def start(client, message):
         )
     )
 
-@bot.on_message(filters.command(['s']))
+@bot.on_message(filters.command(['song']))
 def a(client, message):
     query = ''
     for i in message.command[1:]:
@@ -88,7 +88,7 @@ def a(client, message):
         )
         print(str(e))
         return
-    m.edit("🔎 𝐅𝐢𝐧𝐝𝐢𝐧𝐠 𝐀 𝐒𝐨𝐧𝐠 🎶 𝐏𝐥𝐞𝐚𝐬𝐞 𝐖𝐚𝐢𝐭 ⏳️ 𝐅𝐨𝐫 𝐅𝐞𝐰 𝐒𝐞𝐜𝐨𝐧𝐝𝐬 [🚀](https://telegra.ph/file/67f41ae52a85dfc0551ae.mp4)")
+    m.edit("🔎 𝐅𝐢𝐧𝐝𝐢𝐧𝐠 𝐀 𝐒𝐨𝐧𝐠 🎶 𝐏𝐥𝐞𝐚𝐬𝐞 𝐖𝐚𝐢𝐭 ⏳️ 𝐅𝐨𝐫 𝐅𝐞𝐰 𝐒𝐞𝐜𝐨𝐧𝐝𝐬 🚀")
     try:
         with youtube_dl.YoutubeDL(ydl_opts) as ydl:
             info_dict = ydl.extract_info(link, download=False)
